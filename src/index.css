@@ -1,0 +1,326 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* === CSS Variables for ADOPT-AI Theme === */
+:root {
+  /* Dark Theme Colors */
+  --background: 230 40% 3%;
+  --foreground: 0 0% 98%;
+  --primary: 315 100% 65%;
+  --primary-foreground: 0 0% 100%;
+  --secondary: 260 50% 15%;
+  --secondary-foreground: 0 0% 90%;
+  --accent: 280 100% 70%;
+  --accent-foreground: 0 0% 100%;
+  --muted: 230 35% 8%;
+  --muted-foreground: 215 20% 65%;
+  --destructive: 0 84% 60%;
+  --destructive-foreground: 0 0% 100%;
+  --border: 240 20% 20%;
+  --input: 240 20% 15%;
+  --ring: 315 100% 65%;
+  --radius: 0.75rem;
+
+  /* Custom AI Theme Colors */
+  --neon-pink: 315 100% 65%;
+  --neon-cyan: 180 100% 50%;
+  --neon-purple: 280 100% 70%;
+  --dark-bg: 230 40% 3%;
+  --dark-surface: 230 35% 8%;
+  --gradient-start: 315 100% 65%;
+  --gradient-end: 280 100% 70%;
+}
+
+/* === Base Styles === */
+* {
+  @apply border-border;
+}
+
+body {
+  @apply bg-background text-foreground antialiased;
+  background: linear-gradient(135deg,
+  hsl(230, 40%, 3%) 0%,
+  hsl(260, 35%, 5%) 50%,
+  hsl(280, 30%, 4%) 100%);
+  min-height: 100vh;
+  scroll-behavior: smooth;
+}
+
+/* Container for consistent layout */
+.container {
+  max-width: 1280px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+/* === Enhanced Background Patterns === */
+.bg-neural-pattern {
+  background-image:
+          radial-gradient(circle at 25% 25%, hsl(var(--neon-pink)) 0%, transparent 50%),
+          radial-gradient(circle at 75% 75%, hsl(var(--neon-purple)) 0%, transparent 50%),
+          radial-gradient(circle at 50% 50%, hsl(var(--neon-cyan)) 0%, transparent 50%);
+  background-size: 100px 100px, 150px 150px, 200px 200px;
+  opacity: 0.1;
+  pointer-events: none;
+  user-select: none;
+  animation: pattern-shift 20s linear infinite;
+}
+
+.bg-circuit-pattern {
+  background-image:
+          linear-gradient(90deg, hsl(var(--neon-pink)) 1px, transparent 1px),
+          linear-gradient(180deg, hsl(var(--neon-purple)) 1px, transparent 1px);
+  background-size: 40px 40px;
+  opacity: 0.05;
+  pointer-events: none;
+  user-select: none;
+  animation: circuit-shift 30s linear infinite;
+}
+
+/* === Enhanced Neon Effects === */
+.neon-glow-pink {
+  box-shadow:
+          0 0 6px hsl(var(--neon-pink)),
+          0 0 12px hsl(var(--neon-pink)),
+          0 0 18px hsl(var(--neon-pink)),
+          0 0 24px hsl(var(--neon-pink));
+  transition: box-shadow 0.3s ease-in-out;
+}
+
+.neon-glow-purple {
+  box-shadow:
+          0 0 6px hsl(var(--neon-purple)),
+          0 0 12px hsl(var(--neon-purple)),
+          0 0 18px hsl(var(--neon-purple)),
+          0 0 24px hsl(var(--neon-purple));
+  transition: box-shadow 0.3s ease-in-out;
+}
+
+.shadow-glow {
+  box-shadow:
+          0 0 10px hsl(var(--neon-pink) / 0.3),
+          0 0 20px hsl(var(--neon-purple) / 0.2),
+          0 0 30px hsl(var(--neon-cyan) / 0.1);
+}
+
+.shadow-glow-soft {
+  box-shadow:
+          0 0 5px hsl(var(--neon-pink) / 0.2),
+          0 0 10px hsl(var(--neon-purple) / 0.1);
+}
+
+/* === Enhanced Text Effects === */
+.gradient-text-pink-purple {
+  background: linear-gradient(135deg,
+  hsl(var(--neon-pink)) 0%,
+  hsl(var(--neon-purple)) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  user-select: text;
+}
+
+.gradient-text-cyan-pink {
+  background: linear-gradient(135deg,
+  hsl(var(--neon-cyan)) 0%,
+  hsl(var(--neon-pink)) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  user-select: text;
+}
+
+/* === Enhanced Card Styles === */
+.card-glass {
+  background: hsla(230, 35%, 8%, 0.6);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-radius: var(--radius);
+  border: 1px solid hsl(var(--border) / 0.5);
+  box-shadow:
+          0 4px 30px hsl(var(--dark-bg) / 0.4),
+          0 0 5px hsl(var(--neon-pink) / 0.3);
+  padding: 1.5rem;
+  color: hsl(var(--foreground));
+  transition: all 0.4s ease;
+}
+
+.card-glass:hover {
+  box-shadow:
+          0 8px 40px hsl(var(--dark-bg) / 0.6),
+          0 0 15px hsl(var(--neon-pink) / 0.6);
+  transform: translateY(-2px);
+}
+
+/* === Enhanced Animations === */
+@keyframes pattern-shift {
+  0% {
+    background-position: 0% 0%;
+  }
+  100% {
+    background-position: 100% 100%;
+  }
+}
+
+@keyframes circuit-shift {
+  0% {
+    background-position: 0% 0%;
+  }
+  100% {
+    background-position: 40px 40px;
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+@keyframes pulse-neon {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+    box-shadow: 0 0 10px hsl(var(--neon-pink) / 0.5);
+  }
+  50% {
+    opacity: 0.8;
+    transform: scale(1.05);
+    box-shadow: 0 0 20px hsl(var(--neon-pink) / 0.8);
+  }
+}
+
+.animate-pulse-neon {
+  animation: pulse-neon 2s ease-in-out infinite;
+}
+
+/* === Enhanced Button Styles === */
+.btn-neon {
+  @apply relative px-8 py-3 rounded-lg font-semibold text-white border-2 transition-all duration-300 ease-in-out;
+  border-color: hsl(var(--neon-pink));
+  background: linear-gradient(135deg,
+  hsl(var(--neon-pink)),
+  hsl(var(--neon-purple)));
+  box-shadow:
+          0 0 8px hsl(var(--neon-pink)),
+          0 0 20px hsl(var(--neon-purple));
+  cursor: pointer;
+  user-select: none;
+  overflow: hidden;
+}
+
+.btn-neon:hover,
+.btn-neon:focus-visible {
+  outline: none;
+  border-color: hsl(var(--neon-cyan));
+  background: linear-gradient(135deg,
+  hsl(var(--neon-cyan)),
+  hsl(var(--neon-pink)));
+  box-shadow:
+          0 0 10px hsl(var(--neon-cyan)),
+          0 0 25px hsl(var(--neon-pink));
+  transform: scale(1.05);
+}
+
+.btn-neon:active {
+  transform: scale(0.95);
+  box-shadow:
+          0 0 5px hsl(var(--neon-cyan)),
+          0 0 12px hsl(var(--neon-pink));
+}
+
+/* === Enhanced Scrollbar === */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: hsl(var(--dark-bg));
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(
+    to bottom,
+    hsl(var(--neon-pink)),
+    hsl(var(--neon-purple))
+  );
+  border-radius: 10px;
+  box-shadow: 0 0 5px hsl(var(--neon-pink));
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(
+    to bottom,
+    hsl(var(--neon-purple)),
+    hsl(var(--neon-cyan))
+  );
+  box-shadow: 0 0 8px hsl(var(--neon-cyan));
+}
+
+/* === Accessibility Enhancements === */
+:focus-visible {
+  outline: 3px solid hsl(var(--neon-cyan));
+  outline-offset: 2px;
+}
+
+/* === Motion Reduce Support === */
+@media (prefers-reduced-motion: reduce) {
+  .animated-gradient,
+  .animate-pulse-neon,
+  .animate-float,
+  .animate-glitch,
+  .bg-neural-pattern,
+  .bg-circuit-pattern {
+    animation: none !important;
+  }
+
+  .btn-neon:hover,
+  .btn-neon:focus-visible {
+    transform: none !important;
+  }
+}
+
+/* === Utility Classes === */
+.flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.text-center {
+  text-align: center;
+}
+
+/* === Responsive Design === */
+@media (max-width: 768px) {
+  .card-glass {
+    padding: 1rem;
+  }
+
+  .btn-neon {
+    padding: 0.75rem 1.5rem;
+  }
+}
+
+/* === Example Usage === */
+/*
+<body class="bg-neural-pattern">
+  <header class="container text-center py-10">
+    <h1 class="heading-neon animate-glitch">Adopt-AI</h1>
+    <p class="subheading-neon">Empowering your future with neon tech.</p>
+    <button class="btn-neon">Get Started</button>
+  </header>
+</body>
+*/
+
