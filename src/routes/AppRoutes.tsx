@@ -1,17 +1,24 @@
 import React from 'react';
 import { Routes, Route } from 'react-router-dom';
 import { Home } from '../pages/Home';
-import { About } from '../pages/About';
 import { Portfolio } from '../pages/Portfolio';
+import { Footer } from "../components/layout/footer.tsx";
+import ServicesPage from '../pages/Services';
+import ServiceDetails from '../pages/ServiceDetails';
+import {About} from "../pages";
 
 const AppRoutes: React.FC = () => {
     return (
         <Routes>
             <Route path="/" element={<Home />} />
-            <Route path="/about" element={<About />} />
             <Route path="/portfolio" element={<Portfolio />} />
+            <Route path="/footer" element={<Footer />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/services" element={<ServicesPage />} />
+            <Route path="/services/:id" element={<ServiceDetails />} />
         </Routes>
     );
 };
 
-export default AppRoutes; 
+export default AppRoutes;
+

@@ -9,15 +9,16 @@ const buttonVariants = cva(
   {
     variants: {
       variant: {
-        default: "bg-primary text-primary-foreground hover:bg-primary/90",
+        default: "bg-[#3B82F6] text-primary-foreground hover:bg-[#ea580c]/90", // Bleu par défaut, hover orange foncé
         destructive:
           "bg-destructive text-destructive-foreground hover:bg-destructive/90",
         outline:
-          "border border-input bg-background hover:bg-accent hover:text-accent-foreground",
+          "border border-input bg-background hover:bg-[#ea580c] hover:text-white", // Hover orange foncé
         secondary:
-          "bg-secondary text-secondary-foreground hover:bg-secondary/80",
-        ghost: "hover:bg-accent hover:text-accent-foreground",
-        link: "text-primary underline-offset-4 hover:underline",
+          "bg-[#3B82F6]/20 text-[#3B82F6] hover:bg-[#ea580c]/20 hover:text-[#ea580c]", // Bleu clair vers orange
+        ghost: "hover:bg-[#ea580c]/10 hover:text-[#ea580c]", // Hover orange transparent
+        link: "text-[#3B82F6] underline-offset-4 hover:text-[#ea580c]", // Bleu vers orange
+        accent: "bg-[#ea580c] text-white hover:bg-[#ea580c]/90", // Orange primaire
       },
       size: {
         default: "h-10 px-4 py-2",

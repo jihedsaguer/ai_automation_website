@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react';
 import Particles, { initParticlesEngine } from '@tsparticles/react';
 import type { Container, SingleOrMultiple } from '@tsparticles/engine';
 import { loadSlim } from '@tsparticles/slim';
-import { cn } from '@/lib/utils';
+import {cn} from "../../lib/utils.ts"
 import { motion, useAnimation } from 'framer-motion';
 
 type ParticlesProps = {
@@ -495,7 +495,7 @@ interface SparklesProps {
 export function Sparkles({
   count = 20,
   className,
-  colors = ['text-primary', 'text-[#00EC96]', 'text-[#FFD700]'],
+  colors = ['text-primary', 'text-[#3B82F6]', 'text-[#FFD700]'],
 }: SparklesProps) {
   return (
     <div

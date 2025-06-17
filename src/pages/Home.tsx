@@ -1,4 +1,3 @@
-import React from 'react';
 import {motion} from 'framer-motion';
 import {Link} from 'react-router-dom';
 import {
@@ -10,9 +9,8 @@ import {
     Code,
     Bot,
     Workflow,
-    LineChart,
 } from 'lucide-react';
-import {Button} from "../components/ui/button";
+import {Button} from "../components";
 
 export function Home() {
     return (
@@ -28,80 +26,154 @@ export function Home() {
                             transition={{ duration: 0.5 }}
                             className="space-y-6"
                         >
-                            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 text-primary text-sm font-medium">
+                            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-accent/10 text-accent text-sm font-medium border border-accent/20">
                                 <Bot className="w-4 h-4" />
                                 AI-Powered Solutions
                             </div>
                             <h1 className="text-4xl sm:text-5xl font-bold tracking-tight">
-                                Welcome to <span className="text-primary">AI Automation</span>
+                                Welcome to <span className="text-white">AI Automation</span>
                             </h1>
                             <p className="text-lg text-muted-foreground">
                                 Build intelligent systems to simplify your workflow with our automation tools.
                             </p>
                             <div className="flex flex-col sm:flex-row gap-4">
                                 <Link to="/signup">
-                                    <Button size="lg" className="w-full sm:w-auto">
+                                    <Button size="lg" className="btn-accent w-full sm:w-auto">
                                         Get Started <ArrowRight className="ml-2 h-4 w-4" />
                                     </Button>
                                 </Link>
                                 <Link to="/solutions">
-                                    <Button size="lg" variant="outline" className="w-full sm:w-auto">
+                                    <Button size="lg" variant="outline" className="border-accent-glow w-full sm:w-auto hover:text-accent">
                                         Explore Solutions
                                     </Button>
                                 </Link>
                             </div>
                         </motion.div>
 
-                        {/* Right side - Feature highlights */}
+                        {/* Right side - Feature cards */}
                         <motion.div
-                            initial={{ opacity: 0, x: 20 }}
-                            animate={{ opacity: 1, x: 0 }}
+                            initial={{ opacity: 0, y: 20 }}
+                            animate={{ opacity: 1, y: 0 }}
                             transition={{ duration: 0.5, delay: 0.2 }}
                             className="grid grid-cols-2 gap-4"
                         >
-                            {[
-                                {
-                                    icon: <Workflow className="w-5 h-5" />,
-                                    title: 'Smart Workflows',
-                                    description: 'Automate complex processes'
-                                },
-                                {
-                                    icon: <Brain className="w-5 h-5" />,
-                                    title: 'AI Integration',
-                                    description: 'Seamless AI capabilities'
-                                },
-                                {
-                                    icon: <LineChart className="w-5 h-5" />,
-                                    title: 'Analytics',
-                                    description: 'Data-driven insights'
-                                },
-                                {
-                                    icon: <Shield className="w-5 h-5" />,
-                                    title: 'Enterprise Ready',
-                                    description: 'Secure & scalable'
-                                }
-                            ].map((feature, index) => (
+                            <motion.div
+                                className="card-accent p-6 rounded-lg relative overflow-hidden"
+                                whileHover={{ scale: 1.02 }}
+                                transition={{ type: "spring", stiffness: 400 }}
+                            >
                                 <motion.div
-                                    key={feature.title}
-                                    initial={{ opacity: 0, y: 20 }}
-                                    animate={{ opacity: 1, y: 0 }}
-                                    transition={{ duration: 0.5, delay: 0.3 + index * 0.1 }}
-                                    className="p-4 rounded-lg bg-card border border-primary/20 hover:border-primary/40 transition-colors"
+                                    className="absolute inset-0 bg-gradient-to-r from-primary/10 via-transparent to-primary/10"
+                                    animate={{
+                                        x: ["0%", "100%"],
+                                        opacity: [0.5, 0.8, 0.5]
+                                    }}
+                                    transition={{
+                                        duration: 3,
+                                        repeat: Infinity,
+                                        repeatType: "reverse"
+                                    }}
+                                />
+                                <Shield className="w-8 h-8 mb-4 text-accent" />
+                                <motion.h3
+                                    className="text-lg font-semibold mb-2"
+                                    whileHover={{ x: 5 }}
                                 >
-                                    <div className="flex items-center gap-3 mb-2">
-                                        <div className="w-8 h-8 rounded-lg bg-primary/10 flex items-center justify-center">
-                                            {feature.icon}
-                                        </div>
-                                        <h3 className="font-semibold">{feature.title}</h3>
-                                    </div>
-                                    <p className="text-sm text-muted-foreground">
-                                        {feature.description}
-                                    </p>
-                                </motion.div>
-                            ))}
+                                    Secure & Reliable
+                                </motion.h3>
+                                <p className="text-sm text-muted-foreground">Enterprise-grade security for your automation needs</p>
+                            </motion.div>
+
+                            <motion.div
+                                className="card-glass p-6 rounded-lg relative overflow-hidden"
+                                whileHover={{ scale: 1.02 }}
+                                transition={{ type: "spring", stiffness: 400 }}
+                            >
+                                <motion.div
+                                    className="absolute inset-0 bg-gradient-to-r from-primary/10 via-transparent to-primary/10"
+                                    animate={{
+                                        x: ["0%", "100%"],
+                                        opacity: [0.5, 0.8, 0.5]
+                                    }}
+                                    transition={{
+                                        duration: 3,
+                                        delay: 1,
+                                        repeat: Infinity,
+                                        repeatType: "reverse"
+                                    }}
+                                />
+                                <Zap className="w-8 h-8 mb-4 text-primary" />
+                                <motion.h3
+                                    className="text-lg font-semibold mb-2"
+                                    whileHover={{ x: 5 }}
+                                >
+                                    Lightning Fast
+                                </motion.h3>
+                                <p className="text-sm text-muted-foreground">Optimized performance for rapid processing</p>
+                            </motion.div>
+
+                            <motion.div
+                                className="card-glass p-6 rounded-lg relative overflow-hidden"
+                                whileHover={{ scale: 1.02 }}
+                                transition={{ type: "spring", stiffness: 400 }}
+                            >
+                                <motion.div
+                                    className="absolute inset-0 bg-gradient-to-r from-primary/10 via-transparent to-primary/10"
+                                    animate={{
+                                        x: ["0%", "100%"],
+                                        opacity: [0.5, 0.8, 0.5]
+                                    }}
+                                    transition={{
+                                        duration: 3,
+                                        delay: 1.5,
+                                        repeat: Infinity,
+                                        repeatType: "reverse"
+                                    }}
+                                />
+                                <Brain className="w-8 h-8 mb-4 text-primary" />
+                                <motion.h3
+                                    className="text-lg font-semibold mb-2"
+                                    whileHover={{ x: 5 }}
+                                >
+                                    Smart AI
+                                </motion.h3>
+                                <p className="text-sm text-muted-foreground">Advanced AI algorithms for better results</p>
+                            </motion.div>
+
+                            <motion.div
+                                className="card-accent p-6 rounded-lg relative overflow-hidden"
+                                whileHover={{ scale: 1.02 }}
+                                transition={{ type: "spring", stiffness: 400 }}
+                            >
+                                <motion.div
+                                    className="absolute inset-0 bg-gradient-to-r from-primary/10 via-transparent to-primary/10"
+                                    animate={{
+                                        x: ["0%", "100%"],
+                                        opacity: [0.5, 0.8, 0.5]
+                                    }}
+                                    transition={{
+                                        duration: 3,
+                                        delay: 2,
+                                        repeat: Infinity,
+                                        repeatType: "reverse"
+                                    }}
+                                />
+                                <Workflow className="w-8 h-8 mb-4 text-accent" />
+                                <motion.h3
+                                    className="text-lg font-semibold mb-2"
+                                    whileHover={{ x: 5 }}
+                                >
+                                    Custom Flows
+                                </motion.h3>
+                                <p className="text-sm text-muted-foreground">Tailor automation to your needs</p>
+                            </motion.div>
                         </motion.div>
                     </div>
                 </div>
+
+                {/* Background effects */}
+                <div className="absolute inset-0 -z-10 bg-neural-pattern opacity-30"></div>
+                <div className="absolute inset-0 -z-20 bg-circuit-pattern opacity-20"></div>
             </section>
 
             {/* Innovation Section */}
@@ -186,7 +258,7 @@ export function Home() {
                     className="text-center mb-12 relative z-10"
                 >
                     <h2 className="text-3xl font-bold tracking-tight mb-4">
-                        AI Nexus Features
+                        NLS Consulting Features
                     </h2>
                     <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
                         Comprehensive AI solutions for modern businesses
@@ -233,13 +305,25 @@ export function Home() {
                             transition={{ duration: 0.5, delay: index * 0.1 }}
                             whileHover={{
                                 scale: 1.02,
-                                boxShadow: '0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1)',
-                                transition: { duration: 0.2 },
+                                boxShadow: '0 10px 25px -5px rgba(59, 130, 246, 0.2), 0 8px 10px -6px rgba(59, 130, 246, 0.1)',
                             }}
-                            className="flex flex-col items-center text-center p-6 rounded-xl border border-primary/20 hover:border-primary/40"
+                            className="flex flex-col items-center text-center p-6 rounded-xl border border-primary/20 hover:border-primary/40 relative overflow-hidden"
                         >
                             <motion.div
-                                className="mb-4 rounded-lg bg-primary/10 p-3"
+                                className="absolute inset-0 bg-gradient-to-r from-primary/10 via-transparent to-primary/10"
+                                animate={{
+                                    x: ["0%", "100%"],
+                                    opacity: [0.3, 0.5, 0.3]
+                                }}
+                                transition={{
+                                    duration: 3,
+                                    delay: index * 0.2,
+                                    repeat: Infinity,
+                                    repeatType: "reverse"
+                                }}
+                            />
+                            <motion.div
+                                className="mb-4 rounded-lg bg-primary/10 p-3 relative z-10"
                                 whileHover={{
                                     rotate: [0, -10, 10, -10, 0],
                                     transition: { duration: 0.5 },
@@ -247,8 +331,13 @@ export function Home() {
                             >
                                 {feature.icon}
                             </motion.div>
-                            <h3 className="text-xl font-semibold">{feature.title}</h3>
-                            <p className="mt-2 text-muted-foreground">
+                            <motion.h3
+                                className="text-xl font-semibold relative z-10"
+                                whileHover={{ scale: 1.05 }}
+                            >
+                                {feature.title}
+                            </motion.h3>
+                            <p className="mt-2 text-muted-foreground relative z-10">
                                 {feature.description}
                             </p>
                         </motion.div>
@@ -366,3 +455,4 @@ export function Home() {
 }
 
 export default Home;
+

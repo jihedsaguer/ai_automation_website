@@ -1,0 +1,119 @@
+{
+  "name": "Generate Gym Plan",
+  "nodes": [
+    {
+      "parameters": {
+        "path": "generate-gym-plan",
+        "options": {},
+        "responseMode": "onReceived"
+      },
+      "id": "webhook",
+      "name": "Webhook",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 1,
+      "position": [200, 300]
+    },
+    {
+      "parameters": {
+        "functionCode": "// Validate and sanitize inputs\nconst { height, weight, experience } = $json;\nif (!height || !weight || !experience) {\n  throw new Error('Missing required user input');\n}\nreturn [\n  {\n    json: {\n      height: Number(height),\n      weight: Number(weight),\n      experience: experience.toLowerCase()\n    }\n  }\n];"
+      },
+      "id": "sanitize",
+      "name": "Validate Input",
+      "type": "n8n-nodes-base.function",
+      "typeVersion": 1,
+      "position": [320, 300]
+    },
+    {
+      "parameters": {
+        "model": "deepseek-coder",
+        "messages": [
+          {
+            "role": "system",
+            "content": "You are a certified personal trainer. Given a user's height, weight, and experience level, provide a detailed weekly gym training plan tailored for their needs."
+          },
+          {
+            "role": "user",
+            "content": "Here is a user's info:\n- Height: {{ $json[\"height\"] }} cm\n- Weight: {{ $json[\"weight\"] }} kg\n- Experience Level: {{ $json[\"experience\"] }}\n\nPlease provide a 5-day weekly gym workout routine including exercise names, sets, and reps. Tailor the difficulty to the experience level."
+          }
+        ]
+      },
+      "id": "ai-deepseek",
+      "name": "Generate Plan with Deepseek",
+      "type": "n8n-nodes-base.deepseek",
+      "typeVersion": 1,
+      "position": [470, 300]
+    },
+    {
+      "parameters": {
+        "functionCode": "return [{\n  json: {\n    plan: $json.choices[0].message.content.trim()\n  }\n}];"
+      },
+      "id": "format-response",
+      "name": "Format AI Response",
+      "type": "n8n-nodes-base.function",
+      "typeVersion": 1,
+      "position": [620, 300]
+    },
+    {
+      "parameters": {
+        "responseData": {
+          "responseBody": "={{ JSON.stringify($json) }}"
+        },
+        "options": {}
+      },
+      "id": "return-response",
+      "name": "Return Plan to Client",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1,
+      "position": [770, 300]
+    }
+  ],
+  "connections": {
+    "Webhook": {
+      "main": [
+        [
+          {
+            "node": "Validate Input",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Validate Input": {
+      "main": [
+        [
+          {
+            "node": "Generate Plan with Deepseek",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Generate Plan with Deepseek": {
+      "main": [
+        [
+          {
+            "node": "Format AI Response",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Format AI Response": {
+      "main": [
+        [
+          {
+            "node": "Return Plan to Client",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": true,
+  "settings": {},
+  "versionId": "3"
+}
