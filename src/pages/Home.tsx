@@ -11,6 +11,7 @@ import {
     Workflow,
 } from 'lucide-react';
 import {Button} from "../components";
+import Chatbot from "../components/Chatbot";
 
 export function Home() {
     return (
@@ -450,6 +451,8 @@ export function Home() {
                     </div>
                 </motion.div>
             </section>
+
+            <Chatbot />
         </div>
     );
 }

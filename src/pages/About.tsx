@@ -14,13 +14,13 @@ const About = () => {
           >
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-accent/10 text-accent text-sm font-medium border border-accent/20 mb-4">
               <Sparkles className="w-4 h-4" />
-              À propos de nous
+              About Us
             </div>
             <h1 className="text-4xl sm:text-5xl font-bold tracking-tight mb-6">
-              Nous sommes <span className="text-accent">NLS Consulting</span>
+              We are <span className="text-accent">NLS Consulting</span>
             </h1>
             <p className="text-lg text-muted-foreground mb-8">
-              Spécialistes de l'automatisation intelligente et de l'innovation digitale, nous accompagnons les entreprises dans leur transformation grâce à l'IA, des solutions sur mesure et une expertise technique de pointe.
+              Specialists in intelligent automation and digital innovation, we support companies in their transformation with AI, tailor-made solutions, and cutting-edge technical expertise.
             </p>
           </motion.div>
         </div>
@@ -39,9 +39,9 @@ const About = () => {
             className="bg-card border border-primary/20 rounded-xl p-8 text-center shadow-md"
           >
             <Brain className="w-8 h-8 mx-auto mb-4 text-primary" />
-            <h2 className="text-2xl font-semibold mb-2">Notre mission</h2>
+            <h2 className="text-2xl font-semibold mb-2">Our Mission</h2>
             <p className="text-muted-foreground">
-              Offrir à nos clients des solutions innovantes et performantes pour automatiser leurs tâches, améliorer leur productivité et accélérer leur transformation digitale.
+              To provide our clients with innovative and efficient solutions to automate their tasks, improve productivity, and accelerate their digital transformation.
             </p>
           </motion.div>
           <motion.div
@@ -52,9 +52,9 @@ const About = () => {
             className="bg-card border border-primary/20 rounded-xl p-8 text-center shadow-md"
           >
             <Sparkles className="w-8 h-8 mx-auto mb-4 text-accent" />
-            <h2 className="text-2xl font-semibold mb-2">Notre vision</h2>
+            <h2 className="text-2xl font-semibold mb-2">Our Vision</h2>
             <p className="text-muted-foreground">
-              Être un leader reconnu dans l’automatisation intelligente, en accompagnant nos clients vers le succès grâce à la technologie.
+              To be a recognized leader in intelligent automation, guiding our clients to success through technology.
             </p>
           </motion.div>
           <motion.div
@@ -65,12 +65,12 @@ const About = () => {
             className="bg-card border border-primary/20 rounded-xl p-8 text-center shadow-md"
           >
             <Shield className="w-8 h-8 mx-auto mb-4 text-primary" />
-            <h2 className="text-2xl font-semibold mb-2">Nos valeurs</h2>
+            <h2 className="text-2xl font-semibold mb-2">Our Values</h2>
             <ul className="list-disc list-inside text-muted-foreground text-left inline-block mx-auto">
               <li>Innovation</li>
               <li>Excellence</li>
-              <li>Transparence</li>
-              <li>Engagement</li>
+              <li>Transparency</li>
+              <li>Commitment</li>
               <li>Collaboration</li>
             </ul>
           </motion.div>
@@ -88,10 +88,10 @@ const About = () => {
           className="text-center max-w-4xl mx-auto mb-12 px-4 relative z-10"
         >
           <h2 className="text-3xl font-bold tracking-tight mb-4">
-            Notre expertise
+            Our Expertise
           </h2>
           <p className="text-lg leading-relaxed max-w-xl mx-auto text-muted-foreground">
-            Nous combinons l’intelligence artificielle, l’automatisation et l’innovation pour offrir des solutions adaptées à chaque entreprise.
+            We combine artificial intelligence, automation, and innovation to deliver solutions tailored to each business.
           </p>
         </motion.div>
         <div className="grid md:grid-cols-4 gap-8 items-center relative z-10 max-w-6xl mx-auto">
@@ -103,8 +103,8 @@ const About = () => {
             className="flex flex-col items-center text-center p-6 rounded-xl border border-primary/20 bg-background/50 hover:border-primary/40 shadow"
           >
             <Zap className="h-8 w-8 text-primary mb-3" />
-            <span className="font-semibold mb-1">Automatisation intelligente</span>
-            <span className="text-muted-foreground text-sm">Optimisation des processus métiers</span>
+            <span className="font-semibold mb-1">Intelligent Automation</span>
+            <span className="text-muted-foreground text-sm">Business process optimization</span>
           </motion.div>
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -114,8 +114,8 @@ const About = () => {
             className="flex flex-col items-center text-center p-6 rounded-xl border border-primary/20 bg-background/50 hover:border-primary/40 shadow"
           >
             <Workflow className="h-8 w-8 text-accent mb-3" />
-            <span className="font-semibold mb-1">Solutions sur mesure</span>
-            <span className="text-muted-foreground text-sm">Développement personnalisé</span>
+            <span className="font-semibold mb-1">Tailor-made Solutions</span>
+            <span className="text-muted-foreground text-sm">Custom development</span>
           </motion.div>
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -125,8 +125,8 @@ const About = () => {
             className="flex flex-col items-center text-center p-6 rounded-xl border border-primary/20 bg-background/50 hover:border-primary/40 shadow"
           >
             <Brain className="h-8 w-8 text-primary mb-3" />
-            <span className="font-semibold mb-1">Expertise IA</span>
-            <span className="text-muted-foreground text-sm">Algorithmes avancés</span>
+            <span className="font-semibold mb-1">AI Expertise</span>
+            <span className="text-muted-foreground text-sm">Advanced algorithms</span>
           </motion.div>
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -136,8 +136,8 @@ const About = () => {
             className="flex flex-col items-center text-center p-6 rounded-xl border border-primary/20 bg-background/50 hover:border-primary/40 shadow"
           >
             <Shield className="h-8 w-8 text-accent mb-3" />
-            <span className="font-semibold mb-1">Sécurité & Confiance</span>
-            <span className="text-muted-foreground text-sm">Protection des données</span>
+            <span className="font-semibold mb-1">Security & Trust</span>
+            <span className="text-muted-foreground text-sm">Data protection</span>
           </motion.div>
         </div>
       </section>

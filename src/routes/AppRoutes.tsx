@@ -6,6 +6,8 @@ import { Footer } from "../components/layout/footer.tsx";
 import ServicesPage from '../pages/Services';
 import ServiceDetails from '../pages/ServiceDetails';
 import {About} from "../pages";
+import Partners from "../pages/Partners.tsx";
+import Contact from "../pages/Contact";
 
 const AppRoutes: React.FC = () => {
     return (
@@ -16,6 +18,8 @@ const AppRoutes: React.FC = () => {
             <Route path="/about" element={<About />} />
             <Route path="/services" element={<ServicesPage />} />
             <Route path="/services/:id" element={<ServiceDetails />} />
+            <Route path="/partners" element={<Partners />} />
+            <Route path="/contact" element={<Contact />} />
         </Routes>
     );
 };

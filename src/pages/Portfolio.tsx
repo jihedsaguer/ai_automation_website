@@ -14,36 +14,36 @@ interface Project {
 
 const projects: Project[] = [
     {
-        title: 'AI-Powered Customer Service',
-        description: 'Implemented an intelligent chatbot system that reduced response time by 60% and improved customer satisfaction.',
-        image: 'https://images.unsplash.com/photo-1551434678-e076c223a692?w=800&h=600&fit=crop',
-        tags: ['AI', 'NLP', 'Customer Service'],
-        githubUrl: 'https://github.com',
-        liveUrl: 'https://example.com'
+        title: 'Automation System for Chatbot',
+        description: 'Developed a robust automation system for customer support chatbots, enabling 24/7 instant responses and seamless integration with business workflows.',
+        image: 'https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=800&h=600&fit=crop',
+        tags: ['Automation', 'Chatbot', 'Customer Support'],
+        githubUrl: 'https://github.com/your-org/chatbot-automation',
+        liveUrl: 'https://yourcompany.com/projects/chatbot-automation'
     },
     {
-        title: 'Supply Chain Optimization',
-        description: 'Developed a predictive analytics platform that optimized inventory management and reduced costs by 25%.',
-        image: 'https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=800&h=600&fit=crop',
-        tags: ['Machine Learning', 'Analytics', 'Supply Chain'],
-        githubUrl: 'https://github.com',
-        liveUrl: 'https://example.com'
+        title: 'Odoo Custom Module Development',
+        description: 'Designed and implemented custom Odoo modules for ERP, CRM, and inventory, tailored to unique business needs and scalable for growth.',
+        image: 'https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=800&h=600&fit=crop',
+        tags: ['Odoo', 'ERP', 'CRM', 'Development'],
+        githubUrl: 'https://github.com/your-org/odoo-modules',
+        liveUrl: 'https://yourcompany.com/projects/odoo-modules'
     },
     {
-        title: 'Workflow Automation System',
-        description: 'Created an intelligent automation solution that streamlined business processes and increased productivity by 40%.',
-        image: 'https://images.unsplash.com/photo-1552664730-d307ca884978?w=800&h=600&fit=crop',
-        tags: ['Automation', 'AI', 'Productivity'],
-        githubUrl: 'https://github.com',
-        liveUrl: 'https://example.com'
+        title: 'AI Models for Predictive Analytics',
+        description: 'Built and deployed advanced AI models for predictive analytics, helping clients forecast demand, optimize resources, and drive data-driven decisions.',
+        image: 'https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=800&h=600&fit=crop',
+        tags: ['AI', 'Predictive Analytics', 'Machine Learning'],
+        githubUrl: 'https://github.com/your-org/ai-models',
+        liveUrl: 'https://yourcompany.com/projects/ai-models'
     },
     {
-        title: 'Smart Document Processing',
-        description: 'Built an AI system that automatically processes and categorizes documents with 99% accuracy.',
-        image: 'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=800&h=600&fit=crop',
-        tags: ['Document Processing', 'AI', 'OCR'],
-        githubUrl: 'https://github.com',
-        liveUrl: 'https://example.com'
+        title: 'Security Infrastructure & Compliance',
+        description: 'Implemented enterprise-grade security infrastructure, including network hardening, monitoring, and compliance automation for regulated industries.',
+        image: 'https://images.unsplash.com/photo-1510511459019-5dda7724fd87?w=800&h=600&fit=crop',
+        tags: ['Security', 'Infrastructure', 'Compliance'],
+        githubUrl: 'https://github.com/your-org/security-infra',
+        liveUrl: 'https://yourcompany.com/projects/security-infra'
     }
 ];
 
@@ -140,4 +140,5 @@ export function Portfolio() {
     );
 }
 
-export default Portfolio; 
+export default Portfolio;
+
